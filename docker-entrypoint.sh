@@ -7,8 +7,8 @@ if [ "$1" = "start_proxy" ]; then
             echo >&2 '  You need to specify PROXY_LOGIN and PROXY_PASSWORD'
             exit 1
         fi
-        
-	echo "writable" > /etc/3proxy/cfg/3proxy.cfg
+
+    echo "writable" > /etc/3proxy/cfg/3proxy.cfg
         echo "nserver 1.1.1.1" >> /etc/3proxy/cfg/3proxy.cfg
         echo "nserver 8.8.8.8" >> /etc/3proxy/cfg/3proxy.cfg
         echo "nserver 8.8.4.4" >> /etc/3proxy/cfg/3proxy.cfg
@@ -17,7 +17,7 @@ if [ "$1" = "start_proxy" ]; then
         echo "" >> /etc/3proxy/cfg/3proxy.cfg
         echo 'counter "/etc/3proxy/cfg/3proxy.3cf" D "/etc/3proxy/cfg/traf"' >> /etc/3proxy/cfg/3proxy.cfg
         echo "log" >> /etc/3proxy/cfg/3proxy.cfg
-        echo 'logformat "L%t%. L%t.%. %N.%p %E %U %C:%c %R:%r %O %I %h %T"' >> /etc/3proxy/cfg/3proxy.cfg
+        echo 'logformat "L%t.%. %N.%p %E %U %C:%c %R:%r %O %I %h %T"' >> /etc/3proxy/cfg/3proxy.cfg
         echo "" >> /etc/3proxy/cfg/3proxy.cfg
         echo "monitor /etc/3proxy/cfg/3proxy.cfg" >> /etc/3proxy/cfg/3proxy.cfg
         echo "" >> /etc/3proxy/cfg/3proxy.cfg
@@ -34,8 +34,8 @@ if [ "$1" = "start_proxy" ]; then
         echo "Proxy user password: $PROXY_PASSWORD"
         echo "Proxy process started!"
     fi
-    
+
         /etc/3proxy/3proxy /etc/3proxy/cfg/3proxy.cfg
 else
-	exec "$@"
+    exec "$@"
 fi
