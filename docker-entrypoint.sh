@@ -30,9 +30,10 @@ if [ "$1" = "start_proxy" ]; then
         fi
         echo "" >> /etc/3proxy/main.cfg
         echo "auth strong" >> /etc/3proxy/main.cfg
-        echo "proxy -p3128" >> /etc/3proxy/main.cfg
+        echo "maxconn 1024" >> /etc/3proxy/main.cfg
+        # echo "proxy -p3128" >> /etc/3proxy/main.cfg
         echo "socks -p1080" >> /etc/3proxy/main.cfg
-        echo "admin -p8080" >> /etc/3proxy/main.cfg
+        # echo "admin -p8080" >> /etc/3proxy/main.cfg
         echo "" >> /etc/3proxy/main.cfg
         echo "flush" >> /etc/3proxy/main.cfg
 
